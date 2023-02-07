@@ -1,10 +1,3 @@
-
-
-tensorboard コンテナ外
-py -m tensorboard.main --logdir=C:\Users\araki\workspace\magenta-docker-gpu\data\logdir\run1
-py -m tensorboard.main --logdir=C:\Users\araki\workspace\bishamonten\data\logdir\run1
-
-
 1.notesequence作成
 convert_dir_to_note_sequences \
 --input_dir=/data/input/junk \
@@ -12,7 +5,6 @@ convert_dir_to_note_sequences \
 --recursive
 
 2.dataset作成
-# performance_rnn_create_dataset \
 melody_rnn_create_dataset \
 --config=lookback_rnn \
 --input=/data/tmp/notesequences.tfrecord \
@@ -20,7 +12,6 @@ melody_rnn_create_dataset \
 --eval_ratio=0.2
 
 3.学習
-
 melody_rnn_train \
 --config=lookback_rnn \
 --run_dir=/data/logdir/run4 \

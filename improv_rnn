@@ -1,0 +1,22 @@
+#今のところ動かない
+
+1.notesequence作成
+convert_dir_to_note_sequences \
+--input_dir=/data/input/normal \
+--output_file=/data/tmp/notesequences.tfrecord \
+--recursive
+
+2.データセット
+improv_rnn_create_dataset \
+--config=attention_improv \
+--input=/data/tmp/notesequences.tfrecord \
+--output_dir=/data/set \
+--eval_ratio=0.2
+
+3.学習
+improv_rnn_train \
+--config=attention_improv \
+--run_dir=/data/logdir/run5 \
+--sequence_example_file=/data/set/training_lead_sheets.tfrecord \
+--hparams="batch_size=1,rnn_layer_sizes=[64,64]" \
+--num_training_steps=100
