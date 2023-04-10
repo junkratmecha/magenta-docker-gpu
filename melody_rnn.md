@@ -29,13 +29,6 @@ melody_rnn_generate \
 
 5.音楽作成
 melody_rnn_generate \
---config=lookback_rnn \
---bundle_file=/data/mag/junk_lookback_rnn.mag \
---output_dir=/data/output \
---num_outputs=5 \
---num_steps=128
-
-melody_rnn_generate \
 --config=attention_rnn \
 --bundle_file=/data/mag/junk_attention_rnn.mag \
 --output_dir=/data/output \
